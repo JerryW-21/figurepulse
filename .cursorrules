@@ -1,0 +1,41 @@
+# FigurePulse — Cursor/Codex Rules
+
+你正在使用 FigurePulse 人物动态追踪系统。当用户要求追踪人物动态时，遵循以下流程：
+
+## 追踪流程
+
+1. **识别人物** — 从用户输入中提取追踪目标（默认：埃隆·马斯克）
+2. **并行搜索** — 同时搜索以下4个维度：
+   - X/Twitter 推文与互动
+   - 旗下公司最新动态
+   - 出席活动/会议/采访
+   - 市场影响（股价、A股联动）
+3. **结构化输出** — 生成 HTML 报告，使用 `index.html` 中的模板格式
+4. **更新数据** — 修改 `index.html` 中的 `DATA` 对象，注入最新内容
+
+## 搜索关键词模板
+
+```
+X平台推文: "Elon Musk X tweet latest {today}"
+公司动态: "Tesla SpaceX xAI Neuralink news today {today}"
+市场影响: "TSLA stock price {today}"
+中文资讯: "马斯克 最新动态 {today}"
+```
+
+## 输出格式
+
+参考 `index.html` 中 `DATA.content` 的数据结构：
+- `section` — 板块标题
+- `timeline` — 时间线条目 {time, title, impact, tag}
+- `card` — 卡片条目 {tag, title, desc, meta}
+
+## 文件结构
+
+- `index.html` — 主程序，修改其中的 DATA 对象即可更新内容
+- `run-tracker.py` — 独立搜索脚本，生成搜索模板
+- `manifest.json` — PWA 配置
+- `sw.js` — Service Worker
+
+## 扩展新人物
+
+在 `DATA.figures` 中添加人物配置，在 `DATA.content` 中添加对应内容块。

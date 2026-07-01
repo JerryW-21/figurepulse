@@ -1,0 +1,16 @@
+{
+  "appId": "com.musktracker.app",
+  "appName": "马斯克动态追踪",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1500,
+      "backgroundColor": "#1a1a1a",
+      "showSpinner": false
+    }
+  }
+}
