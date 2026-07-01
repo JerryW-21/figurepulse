@@ -1,7 +1,7 @@
 {
-  "name": "马斯克24H动态追踪 · MuskTracker",
-  "short_name": "MuskTracker",
-  "description": "追踪埃隆·马斯克过去24小时动态：X推文、特斯拉/SpaceX/xAI公司动态、市场影响分析，服务于中国投资者决策参考",
+  "name": "FigurePulse — 人物动态追踪",
+  "short_name": "FigurePulse",
+  "description": "FigurePulse 人物动态脉搏。追踪关键人物24H动态，当前覆盖埃隆·马斯克。服务于中国投资者决策参考",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",

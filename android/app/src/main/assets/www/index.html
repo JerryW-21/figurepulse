@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-<title>马斯克24H动态追踪 · MuskTracker</title>
-<meta name="description" content="追踪埃隆·马斯克过去24小时动态：X推文、特斯拉/SpaceX/xAI公司动态、市场影响分析">
-<meta name="theme-color" content="#1a1a1a">
+<title>FigurePulse · 马斯克24H动态追踪</title>
+<meta name="description" content="FigurePulse — 人物动态脉搏。追踪关键人物24小时动态，目前已覆盖埃隆·马斯克：X推文、特斯拉/SpaceX/xAI公司动态、市场影响分析。未来将扩展更多人物。">
+<meta name="theme-color" content="#0f172a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Musk追踪">
+<meta name="apple-mobile-web-app-title" content="FigurePulse">
 <link rel="manifest" href="./manifest.json">
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
 <meta name="color-scheme" content="light dark">
@@ -200,8 +200,11 @@
       </svg>
     </div>
     <div>
-      <div class="topbar-title">马斯克24H动态追踪</div>
-      <div class="topbar-sub">MuskTracker</div>
+      <div class="topbar-title">FigurePulse</div>
+      <div class="topbar-sub">当前追踪：埃隆·马斯克</div>
+    </div>
+    <div class="topbar-figures" id="figureBadge" style="display:none" onclick="toggleFigureMenu()">
+      <span>▾ 切换人物</span>
     </div>
   </div>
   <div class="topbar-actions">
@@ -254,6 +257,14 @@
 // 数据定义 — 每次自动化刷新只更新这个对象
 // ============================================================
 const DATA = {
+  // === FigurePulse — 人物追踪平台 ===
+  // 当前追踪人物（未来可扩展多人）
+  currentFigure: 'elon-musk',
+  figures: [
+    { id: 'elon-musk', name: '埃隆·马斯克', nameEn: 'Elon Musk', role: 'Tesla/SpaceX/xAI CEO', active: true },
+    // 未来扩展: { id: 'jensen-huang', name: '黄仁勋', nameEn: 'Jensen Huang', role: 'NVIDIA CEO', active: false },
+    // 未来扩展: { id: 'sam-altman', name: '萨姆·奥尔特曼', nameEn: 'Sam Altman', role: 'OpenAI CEO', active: false }
+  ],
   date: '2026.07.01',
   metrics: [
     { label: 'TSLA 收盘', value: '$420.60', sub: '+2.13%（盘中+8.46%）', up: true },
@@ -553,7 +564,7 @@ document.getElementById('bottomNav').addEventListener('click', function(e) {
 function shareApp() {
   if (navigator.share) {
     navigator.share({
-      title: '马斯克24H动态追踪 · MuskTracker',
+      title: 'FigurePulse · 马斯克24H动态追踪',
       text: '追踪埃隆·马斯克过去24小时动态：X推文、特斯拉/SpaceX/xAI最新消息',
       url: location.href
     }).catch(function(){});
